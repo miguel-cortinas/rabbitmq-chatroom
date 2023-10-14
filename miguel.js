@@ -12,7 +12,7 @@ amqp.connect(uri, (err, con) => {
             throw err1;
         }
 
-        // Obtener nombres de los participantes (puedes obtenerlos de la línea de comandos)
+        // participantes
         const participant1 = "Miguel";
         const participant2 = "goku";
         const senderQueueName = `${participant1}_${participant2}_sender`;
@@ -23,7 +23,6 @@ amqp.connect(uri, (err, con) => {
             durable: true
         });
 
-        // Asegurar la existencia de la cola del receptor
         channel.assertQueue(receiverQueueName, {
             durable: true
         });
